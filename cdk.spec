@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf BUGS CHANGES EXPANDING NOTES README TODO
 
-for d in demos examples; do 
+for d in demos examples; do
    rm -f $d/Makefile.in
    mkf=$d/Makefile
    sed 's|\-I%{_prefix}/X11R6/include|\-I%{_includedir}/cdk/|' <$mkf >$mkf.fix
