@@ -5,7 +5,7 @@ Summary:	Curses Development Kit
 Summary(pl):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	3
+Release:	4
 License:	BSD
 Group:		Libraries
 URL:		http://dickey.his.com/cdk/cdk.html
@@ -37,6 +37,7 @@ Summary:	Header files and development documentation for CDK library
 Summary(pl):	Pliki nag³ówkowe i dokumentacja do CDK
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	ncurses-devel
 
 %description devel
 Header files and development documentation for CDK library. This
