@@ -1,5 +1,5 @@
-%define         ver_ver     4.9.11
-%define         ver_release 20031210
+%define		ver_ver		4.9.11
+%define		ver_release	20031210
 
 Summary:	Curses Development Kit
 Summary(pl):	Zestaw programistyczny do Curses
@@ -95,10 +95,10 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 for d in demos examples; do
-   rm -f $d/Makefile.in
-   mkf=$d/Makefile
-   sed 's|\-I\.\..*/include |\-I%{_includedir}/cdk |' <$mkf >$mkf.fix
-   mv -f $mkf.fix $mkf
+	rm -f $d/Makefile.in
+	mkf=$d/Makefile
+	sed 's|\-I\.\..*/include |\-I%{_includedir}/cdk |' <$mkf >$mkf.fix
+	mv -f $mkf.fix $mkf
 done
 cp -rf demos examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
