@@ -1,5 +1,5 @@
 %define         ver_ver     4.9.10
-%define         ver_release 20000923
+%define         ver_release 20010106
 
 Summary:	Curses Development Kit
 Name:		cdk
