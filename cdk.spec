@@ -5,12 +5,14 @@ Summary:	Curses Development Kit
 Summary(pl):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	4
+Release:	5
 License:	BSD
 Group:		Libraries
 URL:		http://dickey.his.com/cdk/cdk.html
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
+Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 Patch0:		%{name}-includes.patch
+Patch1:		%{name}-man_remove_dupl.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -67,6 +69,7 @@ http://www.vexus.ca/CDK.html.
 %prep
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
 %patch0 -p1
+%patch1 -p1
 mkdir include/cdk
 mv -f include/*.* include/cdk
 
@@ -87,6 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} installCDKHeaderFiles installCDKManPages \
 	DESTDIR="$RPM_BUILD_ROOT"
+
+bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT/%{_mandir}
 
 gzip -9nf BUGS CHANGES EXPANDING NOTES README TODO
 
