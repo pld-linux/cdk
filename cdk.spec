@@ -8,13 +8,6 @@ Version:	%{ver_ver}_td%{ver_release}
 Release:	2
 License:	BSD
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 URL:		http://dickey.his.com/cdk/cdk.html
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
 Patch0:		%{name}-includes.patch
@@ -43,13 +36,6 @@ samym, co znajduje siЙ pod adresem http://www.vexus.ca/CDK.html.
 Summary:	Header files and development documentation for CDK library
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja do CDK
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -66,13 +52,6 @@ znajduje siЙ pod adresem http://www.vexus.ca/CDK.html.
 Summary:	Static version of CDK library
 Summary(pl):	Statyczna wersja biblioteki CDK
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
