@@ -2,6 +2,7 @@
 %define         ver_release 20010106
 
 Summary:	Curses Development Kit
+Summary(pl):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
 Release:	2
@@ -11,6 +12,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
 URL:		http://dickey.his.com/cdk/cdk.html
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
 Patch0:		%{name}-includes.patch
@@ -25,13 +29,27 @@ list, viewer widget, dialog box, and many more.
 This version of CDK is maintained by Thomas Dickey and is not the same
 as that at http://www.vexus.ca/CDK.html.
 
+%description -l pl
+CDK to zestaw widgetСw zbudowanych na podstawie biblioteki curses.
+Zawiera 21 gotowych go u©ycia widgetСw. W╤rСd nich jest pole
+wprowadzania tekstu, lista przewijana, lista wyboru, lista
+alfabetyczna, menu rozwijane, lista przyciskСw, przegl╠darka, okienko
+dialogowe i wiele innych.
+
+Ta wersja CDK jest prowadzona przez Thomasa Dickeya i nie jest tym
+samym, co znajduje siЙ pod adresem http://www.vexus.ca/CDK.html.
+
 %package devel
 Summary:	Header files and development documentation for CDK library
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja do CDK
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -39,24 +57,38 @@ Header files and development documentation for CDK library. This
 version is maintained by Thomas Dickey and is not the same as that at
 http://www.vexus.ca/CDK.html.
 
+%description devel -l pl
+Pliki nagЁСwkowe i dokumentacja programisty do biblioteki CDK. Ta
+wersja jest prowadzona przez Thomasa Dickeya i nie jest tym samym, co
+znajduje siЙ pod adresem http://www.vexus.ca/CDK.html.
+
 %package static
 Summary:	Static version of CDK library
 Summary(pl):	Statyczna wersja biblioteki CDK
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
 Static version of CDK library. This version is maintained by Thomas
 Dickey and is not the same as that at http://www.vexus.ca/CDK.html.
 
+%description static -l pl
+Statyczna wersja biblioteki CDK. Ta wersja jest prowadzona przez
+Thomasa Dickeya i nie jest tym samym, co znajduje siЙ pod adresem
+http://www.vexus.ca/CDK.html.
+
 %prep
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
 %patch0 -p1
 mkdir include/cdk
-mv include/*.* include/cdk
+mv -f include/*.* include/cdk
 
 %build
 # -funsigned-char gives valid 8bit display
@@ -85,11 +117,11 @@ for d in demos examples; do
    mv -f $mkf.fix $mkf
 done
 
-%post	-p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
