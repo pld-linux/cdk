@@ -1,0 +1,1278 @@
+diff -ur cdk-4.9.10-20010106/Makefile.in cdk-4.9.10-20010106.mis/Makefile.in
+--- cdk-4.9.10-20010106/Makefile.in	Sat Sep 23 18:07:52 2000
++++ cdk-4.9.10-20010106.mis/Makefile.in	Thu Apr 19 12:00:52 2001
+@@ -173,7 +173,7 @@
+ CDKOBJS		= $(CDKSRC:.c=.o)
+ CDKSHOBJS	= $(CDKSRC:.c=.os)
+ 
+-all $(CDKOBJS) ::	include/cdk_config.h
++all $(CDKOBJS) ::	include/cdk/cdk_config.h
+ 
+ 
+ #
+@@ -280,7 +280,7 @@
+ 	cd examples	&& $(RM) Makefile
+ 	cd demos	&& $(RM) Makefile
+ 	cd cli		&& $(RM) Makefile
+-	$(RM) include/cdk_config.h
++	$(RM) include/cdk/cdk_config.h
+ 	$(RM) Makefile
+ 
+ #
+diff -ur cdk-4.9.10-20010106/alphalist.c cdk-4.9.10-20010106.mis/alphalist.c
+--- cdk-4.9.10-20010106/alphalist.c	Sat Jan  6 20:25:27 2001
++++ cdk-4.9.10-20010106.mis/alphalist.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+  
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/binding.c cdk-4.9.10-20010106.mis/binding.c
+--- cdk-4.9.10-20010106/binding.c	Sat Jan  6 20:27:47 2001
++++ cdk-4.9.10-20010106.mis/binding.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/buttonbox.c cdk-4.9.10-20010106.mis/buttonbox.c
+--- cdk-4.9.10-20010106/buttonbox.c	Sat Jan  6 20:38:19 2001
++++ cdk-4.9.10-20010106.mis/buttonbox.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/calendar.c cdk-4.9.10-20010106.mis/calendar.c
+--- cdk-4.9.10-20010106/calendar.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/calendar.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/cdk.c cdk-4.9.10-20010106.mis/cdk.c
+--- cdk-4.9.10-20010106/cdk.c	Sat Oct 21 23:57:52 2000
++++ cdk-4.9.10-20010106.mis/cdk.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/cdkscreen.c cdk-4.9.10-20010106.mis/cdkscreen.c
+--- cdk-4.9.10-20010106/cdkscreen.c	Sat Sep 23 02:16:19 2000
++++ cdk-4.9.10-20010106.mis/cdkscreen.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ #include <signal.h>
+ 
+ /*
+diff -ur cdk-4.9.10-20010106/cli/cdkalphalist.c cdk-4.9.10-20010106.mis/cli/cdkalphalist.c
+--- cdk-4.9.10-20010106/cli/cdkalphalist.c	Sat Sep 23 17:09:12 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkalphalist.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkalphalist";
+diff -ur cdk-4.9.10-20010106/cli/cdkcalendar.c cdk-4.9.10-20010106.mis/cli/cdkcalendar.c
+--- cdk-4.9.10-20010106/cli/cdkcalendar.c	Sat Sep 23 17:12:08 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkcalendar.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkcalendar";
+diff -ur cdk-4.9.10-20010106/cli/cdkdialog.c cdk-4.9.10-20010106.mis/cli/cdkdialog.c
+--- cdk-4.9.10-20010106/cli/cdkdialog.c	Sat Sep 23 17:12:08 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkdialog.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkdialog";
+diff -ur cdk-4.9.10-20010106/cli/cdkentry.c cdk-4.9.10-20010106.mis/cli/cdkentry.c
+--- cdk-4.9.10-20010106/cli/cdkentry.c	Sat Sep 23 17:12:08 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkentry.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkentry";
+diff -ur cdk-4.9.10-20010106/cli/cdkfselect.c cdk-4.9.10-20010106.mis/cli/cdkfselect.c
+--- cdk-4.9.10-20010106/cli/cdkfselect.c	Sat Sep 23 17:12:08 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkfselect.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkfselect";
+diff -ur cdk-4.9.10-20010106/cli/cdkitemlist.c cdk-4.9.10-20010106.mis/cli/cdkitemlist.c
+--- cdk-4.9.10-20010106/cli/cdkitemlist.c	Sat Sep 23 17:09:12 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkitemlist.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkitemlist";
+diff -ur cdk-4.9.10-20010106/cli/cdklabel.c cdk-4.9.10-20010106.mis/cli/cdklabel.c
+--- cdk-4.9.10-20010106/cli/cdklabel.c	Sat Sep 23 17:07:32 2000
++++ cdk-4.9.10-20010106.mis/cli/cdklabel.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdklabel";
+diff -ur cdk-4.9.10-20010106/cli/cdkmatrix.c cdk-4.9.10-20010106.mis/cli/cdkmatrix.c
+--- cdk-4.9.10-20010106/cli/cdkmatrix.c	Sat Sep 23 17:08:19 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkmatrix.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkmatrix";
+diff -ur cdk-4.9.10-20010106/cli/cdkmentry.c cdk-4.9.10-20010106.mis/cli/cdkmentry.c
+--- cdk-4.9.10-20010106/cli/cdkmentry.c	Sat Sep 23 17:12:08 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkmentry.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkmentry";
+diff -ur cdk-4.9.10-20010106/cli/cdkradio.c cdk-4.9.10-20010106.mis/cli/cdkradio.c
+--- cdk-4.9.10-20010106/cli/cdkradio.c	Sat Sep 23 17:09:12 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkradio.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkradio";
+diff -ur cdk-4.9.10-20010106/cli/cdkscale.c cdk-4.9.10-20010106.mis/cli/cdkscale.c
+--- cdk-4.9.10-20010106/cli/cdkscale.c	Sat Sep 23 17:09:12 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkscale.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkscale";
+diff -ur cdk-4.9.10-20010106/cli/cdkscroll.c cdk-4.9.10-20010106.mis/cli/cdkscroll.c
+--- cdk-4.9.10-20010106/cli/cdkscroll.c	Sat Sep 23 17:09:12 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkscroll.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkscroll";
+diff -ur cdk-4.9.10-20010106/cli/cdkselection.c cdk-4.9.10-20010106.mis/cli/cdkselection.c
+--- cdk-4.9.10-20010106/cli/cdkselection.c	Sat Sep 23 17:09:12 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkselection.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkselection";
+diff -ur cdk-4.9.10-20010106/cli/cdkslider.c cdk-4.9.10-20010106.mis/cli/cdkslider.c
+--- cdk-4.9.10-20010106/cli/cdkslider.c	Sat Sep 23 17:09:12 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkslider.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkslider";
+diff -ur cdk-4.9.10-20010106/cli/cdktemplate.c cdk-4.9.10-20010106.mis/cli/cdktemplate.c
+--- cdk-4.9.10-20010106/cli/cdktemplate.c	Sat Sep 23 17:12:08 2000
++++ cdk-4.9.10-20010106.mis/cli/cdktemplate.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdktemplate";
+diff -ur cdk-4.9.10-20010106/cli/cdkviewer.c cdk-4.9.10-20010106.mis/cli/cdkviewer.c
+--- cdk-4.9.10-20010106/cli/cdkviewer.c	Sat Sep 23 17:12:08 2000
++++ cdk-4.9.10-20010106.mis/cli/cdkviewer.c	Thu Apr 19 12:08:45 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef XCURSES
+ char *XCursesProgramName="cdkviewer";
+diff -ur cdk-4.9.10-20010106/configure cdk-4.9.10-20010106.mis/configure
+--- cdk-4.9.10-20010106/configure	Sat Sep 16 01:54:10 2000
++++ cdk-4.9.10-20010106.mis/configure	Thu Apr 19 12:02:55 2001
+@@ -460,7 +460,7 @@
+ 
+ # A filename unique to this package, relative to the directory that
+ # configure is in, which we can look for to find out if srcdir is correct.
+-ac_unique_file=include/cdk.h
++ac_unique_file=include/cdk/cdk.h
+ 
+ # Find the source files, if location was not specified.
+ if test -z "$srcdir"; then
+@@ -4711,7 +4711,7 @@
+ ac_given_srcdir=$srcdir
+ ac_given_INSTALL="$INSTALL"
+ 
+-trap 'rm -fr `echo "Makefile cli/Makefile examples/Makefile demos/Makefile include/cdk_config.h:include/config.hin" | sed "s/:[^ ]*//g"` conftest*; exit 1' 1 2 15
++trap 'rm -fr `echo "Makefile cli/Makefile examples/Makefile demos/Makefile include/cdk/cdk_config.h:include/cdk/config.hin" | sed "s/:[^ ]*//g"` conftest*; exit 1' 1 2 15
+ EOF
+ cat >> $CONFIG_STATUS <<EOF
+ 
+@@ -4887,7 +4887,7 @@
+ if test "${CONFIG_HEADERS+set}" != set; then
+ EOF
+ cat >> $CONFIG_STATUS <<EOF
+-  CONFIG_HEADERS="include/cdk_config.h:include/config.hin"
++  CONFIG_HEADERS="include/cdk/cdk_config.h:include/cdk/config.hin"
+ EOF
+ cat >> $CONFIG_STATUS <<\EOF
+ fi
+diff -ur cdk-4.9.10-20010106/configure.in cdk-4.9.10-20010106.mis/configure.in
+--- cdk-4.9.10-20010106/configure.in	Sat Sep 23 03:53:55 2000
++++ cdk-4.9.10-20010106.mis/configure.in	Thu Apr 19 12:01:30 2001
+@@ -1,8 +1,8 @@
+ dnl
+ dnl Process this file with autoconf to produce a configure script.
+ dnl
+-AC_INIT(include/cdk.h)
+-AC_CONFIG_HEADER(include/cdk_config.h:include/config.hin)
++AC_INIT(include/cdk/cdk.h)
++AC_CONFIG_HEADER(include/cdk/cdk_config.h:include/cdk/config.hin)
+ 
+ CF_CHECK_CACHE
+ 
+diff -ur cdk-4.9.10-20010106/debug.c cdk-4.9.10-20010106.mis/debug.c
+--- cdk-4.9.10-20010106/debug.c	Sat Feb 19 00:20:55 2000
++++ cdk-4.9.10-20010106.mis/debug.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/demos/appointment.c cdk-4.9.10-20010106.mis/demos/appointment.c
+--- cdk-4.9.10-20010106/demos/appointment.c	Sat Jan  6 21:31:53 2001
++++ cdk-4.9.10-20010106.mis/demos/appointment.c	Thu Apr 19 12:06:21 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="appointmentBook";
+diff -ur cdk-4.9.10-20010106/demos/clock.c cdk-4.9.10-20010106.mis/demos/clock.c
+--- cdk-4.9.10-20010106/demos/clock.c	Sat Feb 19 00:18:18 2000
++++ cdk-4.9.10-20010106.mis/demos/clock.c	Thu Apr 19 12:06:21 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="label_ex";
+diff -ur cdk-4.9.10-20010106/demos/command.c cdk-4.9.10-20010106.mis/demos/command.c
+--- cdk-4.9.10-20010106/demos/command.c	Sat Jan  6 21:34:57 2001
++++ cdk-4.9.10-20010106.mis/demos/command.c	Thu Apr 19 12:06:21 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="command";
+diff -ur cdk-4.9.10-20010106/demos/fileview.c cdk-4.9.10-20010106.mis/demos/fileview.c
+--- cdk-4.9.10-20010106/demos/fileview.c	Thu Jun 29 02:22:29 2000
++++ cdk-4.9.10-20010106.mis/demos/fileview.c	Thu Apr 19 12:06:21 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="codeViewer";
+diff -ur cdk-4.9.10-20010106/demos/rolodex.h cdk-4.9.10-20010106.mis/demos/rolodex.h
+--- cdk-4.9.10-20010106/demos/rolodex.h	Sat Feb 19 00:18:29 2000
++++ cdk-4.9.10-20010106.mis/demos/rolodex.h	Thu Apr 19 12:08:21 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ #include <time.h>
+ #include <fcntl.h>
+ #include <unistd.h>
+diff -ur cdk-4.9.10-20010106/demos/serial.c cdk-4.9.10-20010106.mis/demos/serial.c
+--- cdk-4.9.10-20010106/demos/serial.c	Sat Feb 19 00:18:34 2000
++++ cdk-4.9.10-20010106.mis/demos/serial.c	Thu Apr 19 12:06:21 2001
+@@ -8,7 +8,7 @@
+ #include <unistd.h>
+ #include <time.h>
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="serial";
+diff -ur cdk-4.9.10-20010106/demos/stopSign.c cdk-4.9.10-20010106.mis/demos/stopSign.c
+--- cdk-4.9.10-20010106/demos/stopSign.c	Sat Feb 19 00:18:38 2000
++++ cdk-4.9.10-20010106.mis/demos/stopSign.c	Thu Apr 19 12:06:21 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="sillyness_ex";
+diff -ur cdk-4.9.10-20010106/demos/syb.c cdk-4.9.10-20010106.mis/demos/syb.c
+--- cdk-4.9.10-20010106/demos/syb.c	Sat Jan  6 20:48:57 2001
++++ cdk-4.9.10-20010106.mis/demos/syb.c	Thu Apr 19 12:06:21 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ #include <sybfront.h>
+ #include <sybdb.h>
+ 
+diff -ur cdk-4.9.10-20010106/demos/vinstall.c cdk-4.9.10-20010106.mis/demos/vinstall.c
+--- cdk-4.9.10-20010106/demos/vinstall.c	Thu Jun 29 02:06:55 2000
++++ cdk-4.9.10-20010106.mis/demos/vinstall.c	Thu Apr 19 12:06:21 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="vinstall";
+diff -ur cdk-4.9.10-20010106/dialog.c cdk-4.9.10-20010106.mis/dialog.c
+--- cdk-4.9.10-20010106/dialog.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/dialog.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/draw.c cdk-4.9.10-20010106.mis/draw.c
+--- cdk-4.9.10-20010106/draw.c	Thu Jun 29 01:59:06 2000
++++ cdk-4.9.10-20010106.mis/draw.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/entry.c cdk-4.9.10-20010106.mis/entry.c
+--- cdk-4.9.10-20010106/entry.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/entry.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/examples/alphalist_ex.c cdk-4.9.10-20010106.mis/examples/alphalist_ex.c
+--- cdk-4.9.10-20010106/examples/alphalist_ex.c	Thu Jun 29 02:25:54 2000
++++ cdk-4.9.10-20010106.mis/examples/alphalist_ex.c	Thu Apr 19 12:05:14 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="alphalist_ex";
+diff -ur cdk-4.9.10-20010106/examples/bind_ex.c cdk-4.9.10-20010106.mis/examples/bind_ex.c
+--- cdk-4.9.10-20010106/examples/bind_ex.c	Sat Jan  6 21:41:44 2001
++++ cdk-4.9.10-20010106.mis/examples/bind_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="bind_ex";
+diff -ur cdk-4.9.10-20010106/examples/buttonbox_ex.c cdk-4.9.10-20010106.mis/examples/buttonbox_ex.c
+--- cdk-4.9.10-20010106/examples/buttonbox_ex.c	Sat Jan  6 20:53:27 2001
++++ cdk-4.9.10-20010106.mis/examples/buttonbox_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="buttonbox_ex";
+diff -ur cdk-4.9.10-20010106/examples/calendar_ex.c cdk-4.9.10-20010106.mis/examples/calendar_ex.c
+--- cdk-4.9.10-20010106/examples/calendar_ex.c	Sat Jan  6 21:42:50 2001
++++ cdk-4.9.10-20010106.mis/examples/calendar_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="calendar_ex";
+diff -ur cdk-4.9.10-20010106/examples/cdkscreen_ex.c cdk-4.9.10-20010106.mis/examples/cdkscreen_ex.c
+--- cdk-4.9.10-20010106/examples/cdkscreen_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/cdkscreen_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * This demonstrates how to create four different Cdk
+diff -ur cdk-4.9.10-20010106/examples/dialog_ex.c cdk-4.9.10-20010106.mis/examples/dialog_ex.c
+--- cdk-4.9.10-20010106/examples/dialog_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/dialog_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="dialog_ex";
+diff -ur cdk-4.9.10-20010106/examples/entry_ex.c cdk-4.9.10-20010106.mis/examples/entry_ex.c
+--- cdk-4.9.10-20010106/examples/entry_ex.c	Sat Jan  6 21:27:05 2001
++++ cdk-4.9.10-20010106.mis/examples/entry_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="entry_ex";
+diff -ur cdk-4.9.10-20010106/examples/fselect_ex.c cdk-4.9.10-20010106.mis/examples/fselect_ex.c
+--- cdk-4.9.10-20010106/examples/fselect_ex.c	Thu Jun 29 02:22:21 2000
++++ cdk-4.9.10-20010106.mis/examples/fselect_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="fselect_ex";
+diff -ur cdk-4.9.10-20010106/examples/graph_ex.c cdk-4.9.10-20010106.mis/examples/graph_ex.c
+--- cdk-4.9.10-20010106/examples/graph_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/graph_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="graph_ex";
+diff -ur cdk-4.9.10-20010106/examples/hello_ex.c cdk-4.9.10-20010106.mis/examples/hello_ex.c
+--- cdk-4.9.10-20010106/examples/hello_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/hello_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="hello_ex";
+diff -ur cdk-4.9.10-20010106/examples/histogram_ex.c cdk-4.9.10-20010106.mis/examples/histogram_ex.c
+--- cdk-4.9.10-20010106/examples/histogram_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/histogram_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="histogram_ex";
+diff -ur cdk-4.9.10-20010106/examples/itemlist_ex.c cdk-4.9.10-20010106.mis/examples/itemlist_ex.c
+--- cdk-4.9.10-20010106/examples/itemlist_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/itemlist_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="itemlist_ex";
+diff -ur cdk-4.9.10-20010106/examples/label_ex.c cdk-4.9.10-20010106.mis/examples/label_ex.c
+--- cdk-4.9.10-20010106/examples/label_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/label_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="label_ex";
+diff -ur cdk-4.9.10-20010106/examples/lowerCDKObject_ex.c cdk-4.9.10-20010106.mis/examples/lowerCDKObject_ex.c
+--- cdk-4.9.10-20010106/examples/lowerCDKObject_ex.c	Sat Sep 23 02:49:17 2000
++++ cdk-4.9.10-20010106.mis/examples/lowerCDKObject_ex.c	Thu Apr 19 12:05:34 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include "cdk.h"
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName = "lowerCDKObject_ex";
+diff -ur cdk-4.9.10-20010106/examples/marquee_ex.c cdk-4.9.10-20010106.mis/examples/marquee_ex.c
+--- cdk-4.9.10-20010106/examples/marquee_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/marquee_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="marquee_ex";
+diff -ur cdk-4.9.10-20010106/examples/matrix_ex.c cdk-4.9.10-20010106.mis/examples/matrix_ex.c
+--- cdk-4.9.10-20010106/examples/matrix_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/matrix_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="matrix_ex";
+diff -ur cdk-4.9.10-20010106/examples/mentry_ex.c cdk-4.9.10-20010106.mis/examples/mentry_ex.c
+--- cdk-4.9.10-20010106/examples/mentry_ex.c	Sat Feb 19 02:56:55 2000
++++ cdk-4.9.10-20010106.mis/examples/mentry_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="mentry_ex";
+diff -ur cdk-4.9.10-20010106/examples/menu_ex.c cdk-4.9.10-20010106.mis/examples/menu_ex.c
+--- cdk-4.9.10-20010106/examples/menu_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/menu_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="menu_ex";
+diff -ur cdk-4.9.10-20010106/examples/position_ex.c cdk-4.9.10-20010106.mis/examples/position_ex.c
+--- cdk-4.9.10-20010106/examples/position_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/position_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="position_ex";
+diff -ur cdk-4.9.10-20010106/examples/preprocess_ex.c cdk-4.9.10-20010106.mis/examples/preprocess_ex.c
+--- cdk-4.9.10-20010106/examples/preprocess_ex.c	Sat Jan  6 21:47:18 2001
++++ cdk-4.9.10-20010106.mis/examples/preprocess_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="preprocess_ex";
+diff -ur cdk-4.9.10-20010106/examples/radio_ex.c cdk-4.9.10-20010106.mis/examples/radio_ex.c
+--- cdk-4.9.10-20010106/examples/radio_ex.c	Thu Jun 29 03:07:43 2000
++++ cdk-4.9.10-20010106.mis/examples/radio_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="radio_ex";
+diff -ur cdk-4.9.10-20010106/examples/raiseCDKObject_ex.c cdk-4.9.10-20010106.mis/examples/raiseCDKObject_ex.c
+--- cdk-4.9.10-20010106/examples/raiseCDKObject_ex.c	Sat Sep 23 02:49:24 2000
++++ cdk-4.9.10-20010106.mis/examples/raiseCDKObject_ex.c	Thu Apr 19 12:06:05 2001
+@@ -1,6 +1,6 @@
+ /* $Id$ */
+ 
+-#include "cdk.h"
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName = "raiseCDKObject_ex";
+diff -ur cdk-4.9.10-20010106/examples/scale_ex.c cdk-4.9.10-20010106.mis/examples/scale_ex.c
+--- cdk-4.9.10-20010106/examples/scale_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/scale_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="scale_ex";
+diff -ur cdk-4.9.10-20010106/examples/scroll_ex.c cdk-4.9.10-20010106.mis/examples/scroll_ex.c
+--- cdk-4.9.10-20010106/examples/scroll_ex.c	Thu Jun 29 03:06:50 2000
++++ cdk-4.9.10-20010106.mis/examples/scroll_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="scroll_ex";
+diff -ur cdk-4.9.10-20010106/examples/selection_ex.c cdk-4.9.10-20010106.mis/examples/selection_ex.c
+--- cdk-4.9.10-20010106/examples/selection_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/selection_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="selection_ex";
+diff -ur cdk-4.9.10-20010106/examples/slider_ex.c cdk-4.9.10-20010106.mis/examples/slider_ex.c
+--- cdk-4.9.10-20010106/examples/slider_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/slider_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="slider_ex";
+diff -ur cdk-4.9.10-20010106/examples/subwindow_ex.c cdk-4.9.10-20010106.mis/examples/subwindow_ex.c
+--- cdk-4.9.10-20010106/examples/subwindow_ex.c	Sun Apr  9 20:36:22 2000
++++ cdk-4.9.10-20010106.mis/examples/subwindow_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="subwindow_ex";
+diff -ur cdk-4.9.10-20010106/examples/swindow_ex.c cdk-4.9.10-20010106.mis/examples/swindow_ex.c
+--- cdk-4.9.10-20010106/examples/swindow_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/swindow_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="swindow_ex";
+diff -ur cdk-4.9.10-20010106/examples/template_ex.c cdk-4.9.10-20010106.mis/examples/template_ex.c
+--- cdk-4.9.10-20010106/examples/template_ex.c	Sat Feb 19 01:18:54 2000
++++ cdk-4.9.10-20010106.mis/examples/template_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="template_ex";
+diff -ur cdk-4.9.10-20010106/examples/viewer_ex.c cdk-4.9.10-20010106.mis/examples/viewer_ex.c
+--- cdk-4.9.10-20010106/examples/viewer_ex.c	Thu Jun 29 02:22:21 2000
++++ cdk-4.9.10-20010106.mis/examples/viewer_ex.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="viewer_ex";
+diff -ur cdk-4.9.10-20010106/examples/vinstall.c cdk-4.9.10-20010106.mis/examples/vinstall.c
+--- cdk-4.9.10-20010106/examples/vinstall.c	Thu Jun 29 02:10:55 2000
++++ cdk-4.9.10-20010106.mis/examples/vinstall.c	Thu Apr 19 12:05:15 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ #ifdef HAVE_XCURSES
+ char *XCursesProgramName="vinstall";
+diff -ur cdk-4.9.10-20010106/fselect.c cdk-4.9.10-20010106.mis/fselect.c
+--- cdk-4.9.10-20010106/fselect.c	Sat Jan  6 20:26:18 2001
++++ cdk-4.9.10-20010106.mis/fselect.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/graph.c cdk-4.9.10-20010106.mis/graph.c
+--- cdk-4.9.10-20010106/graph.c	Sat Feb 19 00:20:55 2000
++++ cdk-4.9.10-20010106.mis/graph.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/histogram.c cdk-4.9.10-20010106.mis/histogram.c
+--- cdk-4.9.10-20010106/histogram.c	Sat Feb 19 00:20:55 2000
++++ cdk-4.9.10-20010106.mis/histogram.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/include/alphalist.h cdk-4.9.10-20010106.mis/include/alphalist.h
+--- cdk-4.9.10-20010106/include/alphalist.h	Sat Feb 19 01:17:02 2000
++++ cdk-4.9.10-20010106.mis/include/alphalist.h	Thu Apr 19 12:04:23 2001
+@@ -1,9 +1,9 @@
+ #ifndef CDKALPHALIST_H
+ #define CDKALPHALIST_H	1
+ 
+-#include <cdk.h>
+-#include <entry.h>
+-#include <scroll.h>
++#include <cdk/cdk.h>
++#include <cdk/entry.h>
++#include <cdk/scroll.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/binding.h cdk-4.9.10-20010106.mis/include/binding.h
+--- cdk-4.9.10-20010106/include/binding.h	Sat Jan  6 20:24:41 2001
++++ cdk-4.9.10-20010106.mis/include/binding.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKBINDING_H
+ #define CDKBINDING_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Copyright 1999, Mike Glover
+diff -ur cdk-4.9.10-20010106/include/buttonbox.h cdk-4.9.10-20010106.mis/include/buttonbox.h
+--- cdk-4.9.10-20010106/include/buttonbox.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/buttonbox.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKBUTTONBOX_H
+ #define CDKBUTTONBOX_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/calendar.h cdk-4.9.10-20010106.mis/include/calendar.h
+--- cdk-4.9.10-20010106/include/calendar.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/calendar.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKCALENDAR_H
+ #define CDKCALENDAR_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/cdk.h cdk-4.9.10-20010106.mis/include/cdk.h
+--- cdk-4.9.10-20010106/include/cdk.h	Sun Oct 22 01:04:47 2000
++++ cdk-4.9.10-20010106.mis/include/cdk.h	Thu Apr 19 11:44:12 2001
+@@ -34,7 +34,7 @@
+  * SUCH DAMAGE.
+  */
+ 
+-#include <cdk_config.h>
++#include <cdk/cdk_config.h>
+ 
+ #ifdef	CDK_PERL_EXT
+ #undef	instr
+@@ -228,37 +228,37 @@
+ /*
+  * These header files define miscellaneous values and prototypes.
+  */
+-#include <cdkscreen.h>
+-#include <curdefs.h>
+-#include <binding.h>
+-#include <cdk_util.h>
+-#include <cdk_objs.h>
++#include <cdk/cdkscreen.h>
++#include <cdk/curdefs.h>
++#include <cdk/binding.h>
++#include <cdk/cdk_util.h>
++#include <cdk/cdk_objs.h>
+ 
+ /*
+  * Include the CDK widget header files.
+  */
+-#include <alphalist.h>
+-#include <buttonbox.h>
+-#include <calendar.h>
+-#include <dialog.h>
+-#include <entry.h>
+-#include <fselect.h>
+-#include <graph.h>
+-#include <histogram.h>
+-#include <itemlist.h>
+-#include <label.h>
+-#include <marquee.h>
+-#include <matrix.h>
+-#include <mentry.h>
+-#include <menu.h>
+-#include <radio.h>
+-#include <scale.h>
+-#include <scroll.h>
+-#include <selection.h>
+-#include <slider.h>
+-#include <swindow.h>
+-#include <template.h>
+-#include <viewer.h>
+-#include <draw.h>
++#include <cdk/alphalist.h>
++#include <cdk/buttonbox.h>
++#include <cdk/calendar.h>
++#include <cdk/dialog.h>
++#include <cdk/entry.h>
++#include <cdk/fselect.h>
++#include <cdk/graph.h>
++#include <cdk/histogram.h>
++#include <cdk/itemlist.h>
++#include <cdk/label.h>
++#include <cdk/marquee.h>
++#include <cdk/matrix.h>
++#include <cdk/mentry.h>
++#include <cdk/menu.h>
++#include <cdk/radio.h>
++#include <cdk/scale.h>
++#include <cdk/scroll.h>
++#include <cdk/selection.h>
++#include <cdk/slider.h>
++#include <cdk/swindow.h>
++#include <cdk/template.h>
++#include <cdk/viewer.h>
++#include <cdk/draw.h>
+ 
+ #endif /* CDK_H */
+diff -ur cdk-4.9.10-20010106/include/cdk_util.h cdk-4.9.10-20010106.mis/include/cdk_util.h
+--- cdk-4.9.10-20010106/include/cdk_util.h	Thu Jun 29 03:04:09 2000
++++ cdk-4.9.10-20010106.mis/include/cdk_util.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKUTIL_H
+ #define CDKUTIL_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Copyright 1999, Mike Glover
+diff -ur cdk-4.9.10-20010106/include/cdkscreen.h cdk-4.9.10-20010106.mis/include/cdkscreen.h
+--- cdk-4.9.10-20010106/include/cdkscreen.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/cdkscreen.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKSCREEN_H
+ #define CDKSCREEN_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Copyright 1999, Mike Glover
+diff -ur cdk-4.9.10-20010106/include/dialog.h cdk-4.9.10-20010106.mis/include/dialog.h
+--- cdk-4.9.10-20010106/include/dialog.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/dialog.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKDIALOG_H
+ #define CDKDIALOG_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/draw.h cdk-4.9.10-20010106.mis/include/draw.h
+--- cdk-4.9.10-20010106/include/draw.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/draw.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKDRAW_H
+ #define CDKDRAW_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Copyright 1999, Mike Glover
+diff -ur cdk-4.9.10-20010106/include/entry.h cdk-4.9.10-20010106.mis/include/entry.h
+--- cdk-4.9.10-20010106/include/entry.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/entry.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKENTRY_H
+ #define CDKENTRY_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/fselect.h cdk-4.9.10-20010106.mis/include/fselect.h
+--- cdk-4.9.10-20010106/include/fselect.h	Sat Feb 19 01:17:02 2000
++++ cdk-4.9.10-20010106.mis/include/fselect.h	Thu Apr 19 11:57:20 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKFSELECT_H
+ #define CDKFSELECT_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+@@ -41,8 +41,8 @@
+  * SUCH DAMAGE.
+  */
+ 
+-#include <label.h>
+-#include <entry.h>
++#include <cdk/label.h>
++#include <cdk/entry.h>
+ 
+ /*
+  * Define the CDK file selector widget structure.
+diff -ur cdk-4.9.10-20010106/include/graph.h cdk-4.9.10-20010106.mis/include/graph.h
+--- cdk-4.9.10-20010106/include/graph.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/graph.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKGRAPH_H
+ #define CDKGRAPH_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/histogram.h cdk-4.9.10-20010106.mis/include/histogram.h
+--- cdk-4.9.10-20010106/include/histogram.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/histogram.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKHISTOGRAM_H
+ #define CDKHISTOGRAM_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/itemlist.h cdk-4.9.10-20010106.mis/include/itemlist.h
+--- cdk-4.9.10-20010106/include/itemlist.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/itemlist.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKITEMLIST_H
+ #define CDKITEMLIST_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/label.h cdk-4.9.10-20010106.mis/include/label.h
+--- cdk-4.9.10-20010106/include/label.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/label.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKLABEL_H
+ #define CDKLABEL_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/marquee.h cdk-4.9.10-20010106.mis/include/marquee.h
+--- cdk-4.9.10-20010106/include/marquee.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/marquee.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKMARQUEE_H
+ #define CDKMARQUEE_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/matrix.h cdk-4.9.10-20010106.mis/include/matrix.h
+--- cdk-4.9.10-20010106/include/matrix.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/matrix.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKMATRIX_H
+ #define CDKMATRIX_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/mentry.h cdk-4.9.10-20010106.mis/include/mentry.h
+--- cdk-4.9.10-20010106/include/mentry.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/mentry.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKMENTRY_H
+ #define CDKMENTRY_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/menu.h cdk-4.9.10-20010106.mis/include/menu.h
+--- cdk-4.9.10-20010106/include/menu.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/menu.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKMENU_H
+ #define CDKMENU_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Copyright 1999, Mike Glover
+diff -ur cdk-4.9.10-20010106/include/radio.h cdk-4.9.10-20010106.mis/include/radio.h
+--- cdk-4.9.10-20010106/include/radio.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/radio.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKRADIO_H
+ #define CDKRADIO_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/scale.h cdk-4.9.10-20010106.mis/include/scale.h
+--- cdk-4.9.10-20010106/include/scale.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/scale.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKSCALE_H
+ #define CDKSCALE_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/scroll.h cdk-4.9.10-20010106.mis/include/scroll.h
+--- cdk-4.9.10-20010106/include/scroll.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/scroll.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKSCROLL_H
+ #define CDKSCROLL_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/selection.h cdk-4.9.10-20010106.mis/include/selection.h
+--- cdk-4.9.10-20010106/include/selection.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/selection.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKSELECTION_H
+ #define CDKSELECTION_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/slider.h cdk-4.9.10-20010106.mis/include/slider.h
+--- cdk-4.9.10-20010106/include/slider.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/slider.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKSLIDER_H
+ #define CDKSLIDER_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/swindow.h cdk-4.9.10-20010106.mis/include/swindow.h
+--- cdk-4.9.10-20010106/include/swindow.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/swindow.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKSWINDOW_H
+ #define CDKSWINDOW_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/template.h cdk-4.9.10-20010106.mis/include/template.h
+--- cdk-4.9.10-20010106/include/template.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/template.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKTEMPLATE_H
+ #define CDKTEMPLATE_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/include/viewer.h cdk-4.9.10-20010106.mis/include/viewer.h
+--- cdk-4.9.10-20010106/include/viewer.h	Sat Feb 19 01:16:18 2000
++++ cdk-4.9.10-20010106.mis/include/viewer.h	Thu Apr 19 11:42:31 2001
+@@ -1,7 +1,7 @@
+ #ifndef CDKVIEWER_H
+ #define CDKVIEWER_H	1
+ 
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * Description of the widget:
+diff -ur cdk-4.9.10-20010106/itemlist.c cdk-4.9.10-20010106.mis/itemlist.c
+--- cdk-4.9.10-20010106/itemlist.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/itemlist.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/label.c cdk-4.9.10-20010106.mis/label.c
+--- cdk-4.9.10-20010106/label.c	Sat Aug 19 02:47:17 2000
++++ cdk-4.9.10-20010106.mis/label.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/marquee.c cdk-4.9.10-20010106.mis/marquee.c
+--- cdk-4.9.10-20010106/marquee.c	Sat Feb 19 00:20:55 2000
++++ cdk-4.9.10-20010106.mis/marquee.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/matrix.c cdk-4.9.10-20010106.mis/matrix.c
+--- cdk-4.9.10-20010106/matrix.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/matrix.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/mentry.c cdk-4.9.10-20010106.mis/mentry.c
+--- cdk-4.9.10-20010106/mentry.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/mentry.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/menu.c cdk-4.9.10-20010106.mis/menu.c
+--- cdk-4.9.10-20010106/menu.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/menu.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/position.c cdk-4.9.10-20010106.mis/position.c
+--- cdk-4.9.10-20010106/position.c	Sat Feb 19 00:20:55 2000
++++ cdk-4.9.10-20010106.mis/position.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/radio.c cdk-4.9.10-20010106.mis/radio.c
+--- cdk-4.9.10-20010106/radio.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/radio.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/scale.c cdk-4.9.10-20010106.mis/scale.c
+--- cdk-4.9.10-20010106/scale.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/scale.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/scroll.c cdk-4.9.10-20010106.mis/scroll.c
+--- cdk-4.9.10-20010106/scroll.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/scroll.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/selection.c cdk-4.9.10-20010106.mis/selection.c
+--- cdk-4.9.10-20010106/selection.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/selection.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/slider.c cdk-4.9.10-20010106.mis/slider.c
+--- cdk-4.9.10-20010106/slider.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/slider.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/swindow.c cdk-4.9.10-20010106.mis/swindow.c
+--- cdk-4.9.10-20010106/swindow.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/swindow.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/template.c cdk-4.9.10-20010106.mis/template.c
+--- cdk-4.9.10-20010106/template.c	Sat Jan  6 20:39:43 2001
++++ cdk-4.9.10-20010106.mis/template.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+diff -ur cdk-4.9.10-20010106/viewer.c cdk-4.9.10-20010106.mis/viewer.c
+--- cdk-4.9.10-20010106/viewer.c	Sat Aug 19 03:41:31 2000
++++ cdk-4.9.10-20010106.mis/viewer.c	Thu Apr 19 12:03:42 2001
+@@ -1,4 +1,4 @@
+-#include <cdk.h>
++#include <cdk/cdk.h>
+ 
+ /*
+  * $Author$
+--- cdk-4.9.10-20010106/Makefile.in	Thu Apr 19 12:23:08 2001
++++ cdk-4.9.10-20010106.mis/Makefile.in	Thu Apr 19 12:25:29 2001
+@@ -216,8 +216,8 @@
+ installCDKHeaderFiles:: $(INCLUDE_DIR)
+ 	@echo "Installing CDK header files in $(INCLUDE_DIR)..."
+ 	@for i in $(CDKHDR); do \
+-	   echo "	... include/$$i"; \
+-	   $(INSTALL_DATA) include/$$i $(INCLUDE_DIR)/$$i; \
++	   echo "	... include/cdk/$$i"; \
++	   $(INSTALL_DATA) include/cdk/$$i $(INCLUDE_DIR)/$$i; \
+ 	done
+ 
+ #
