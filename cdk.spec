@@ -11,6 +11,7 @@ Group:		Libraries
 URL:		http://dickey.his.com/cdk/cdk.html
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
+# Source1-md5: ae2a6fea526cc1c4407e547bda537a08
 Patch0:		%{name}-includes.patch
 Patch1:		%{name}-man_remove_dupl.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
