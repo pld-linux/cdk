@@ -1,5 +1,5 @@
-%define         ver_ver     4.9.9
-%define         ver_release 20000628
+%define         ver_ver     4.9.10
+%define         ver_release 20000923
 
 Summary:	Curses Development Kit
 Name:		cdk
@@ -61,10 +61,8 @@ CFLAGS="$RPM_OPT_FLAGS -funsigned-char";
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} DESTDIR="$RPM_BUILD_ROOT" installCDKSHLibrary installCDKLibrary  
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/*.so.*.* 
 
 %{__make} DESTDIR="$RPM_BUILD_ROOT" installCDKHeaderFiles installCDKManPages
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/*
 gzip -9nf {BUGS,CHANGES,COPYING,EXPANDING,INSTALL,NOTES,README,TODO}
 
 for d in demos examples; do 
