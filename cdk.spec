@@ -8,13 +8,13 @@ Version:	%{ver_ver}_td%{ver_release}
 Release:	1
 License:	BSD
 Group:		Libraries
-URL:		http://dickey.his.com/cdk/cdk.html
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
 # Source0-md5:	5733dd070dba41f8461de5d1f54a4471
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
 Patch0:		%{name}-includes.patch
 Patch1:		%{name}-man_remove_dupl.patch
+URL:		http://dickey.his.com/cdk/cdk.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -89,10 +89,10 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} installCDKSHLibrary installCDKLibrary \
-	DESTDIR="$RPM_BUILD_ROOT"
+	DESTDIR=$RPM_BUILD_ROOT
 
 %{__make} installCDKHeaderFiles installCDKManPages \
-	DESTDIR="$RPM_BUILD_ROOT"
+	DESTDIR=$RPM_BUILD_ROOT
 
 bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT/%{_mandir}
 
