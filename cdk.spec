@@ -8,6 +8,7 @@ Release:	1
 License:	BSD
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 URL:		http://dickey.his.com/cdk/cdk.html
@@ -55,7 +56,7 @@ Dickey and is not the same as that at http://www.vexus.ca/CDK.html.
 
 %build
 # -funsigned-char gets valid 8bit display
-CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -funsigned-char"
+CFLAGS="%{rpmcflags} -funsigned-char"
 %configure \
 	--disable-x \
 	--with-ncurses
