@@ -61,7 +61,7 @@ mv include/*.* include/cdk
 %build
 # -funsigned-char gives valid 8bit display
 CFLAGS="%{rpmcflags} -funsigned-char"
-%configure \
+%configure2_13 \
 	--disable-x \
 	--with-ncurses
 %{__make}
