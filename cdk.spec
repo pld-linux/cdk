@@ -1,5 +1,5 @@
-%define         ver_ver     4.9.10
-%define         ver_release 20030418
+%define         ver_ver     4.9.11
+%define         ver_release 20031210
 
 Summary:	Curses Development Kit
 Summary(pl):	Zestaw programistyczny do Curses
@@ -9,11 +9,10 @@ Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
-# Source0-md5:	5733dd070dba41f8461de5d1f54a4471
+# Source0-md5:	3ceba51c3aa0bc526962f54f86ef616a
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
-Patch0:		%{name}-includes.patch
-Patch1:		%{name}-man_remove_dupl.patch
+Patch0:		%{name}-man_remove_dupl.patch
 URL:		http://dickey.his.com/cdk/cdk.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,7 +70,6 @@ http://www.vexus.ca/CDK.html.
 %prep
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
 %patch0 -p1
-%patch1 -p1
 ln -sf . include/cdk
 
 %build
