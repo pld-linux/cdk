@@ -7,6 +7,7 @@ Version:	%{ver_ver}_td%{ver_release}
 Release:	1
 License:	BSD
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 URL:		http://dickey.his.com/cdk/cdk.html
@@ -15,8 +16,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 CDK is a widget set developed on top of the basic curses library. It
-contains 21 ready to use widgets. Some which are a text entry field, 
-a scrolling list, a selection list, a alphalist, pull-down menu, radio
+contains 21 ready to use widgets. Some which are a text entry field, a
+scrolling list, a selection list, a alphalist, pull-down menu, radio
 list, viewer widget, dialog box, and many more.
 
 This version of CDK is maintained by Thomas Dickey and is not the same
@@ -26,19 +27,21 @@ as that at http://www.vexus.ca/CDK.html.
 Summary:	Header files and development documentation for CDK library
 Summary(pl):	Pliki nag³ówkowe i dokumentacja do CDK
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
 Header files and development documentation for CDK library. This
-version is maintained by Thomas Dickey and is not the same as that 
-at http://www.vexus.ca/CDK.html.
+version is maintained by Thomas Dickey and is not the same as that at
+http://www.vexus.ca/CDK.html.
 
 %package static
 Summary:	Static version of CDK library
 Summary(pl):	Statyczna wersja biblioteki CDK
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -52,18 +55,23 @@ Dickey and is not the same as that at http://www.vexus.ca/CDK.html.
 
 %build
 # -funsigned-char gets valid 8bit display
-CFLAGS="$RPM_OPT_FLAGS -funsigned-char"; 
-%configure --disable-x --with-ncurses
+CFLAGS="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}" -funsigned-char"; 
+%configure \
+	--disable-x \
+	--with-ncurses
 %{__make}
 %{__make} cdkshlib
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} DESTDIR="$RPM_BUILD_ROOT" installCDKSHLibrary installCDKLibrary  
+%{__make} installCDKSHLibrary installCDKLibrary \
+	DESTDIR="$RPM_BUILD_ROOT"
 
-%{__make} DESTDIR="$RPM_BUILD_ROOT" installCDKHeaderFiles installCDKManPages
-gzip -9nf {BUGS,CHANGES,COPYING,EXPANDING,INSTALL,NOTES,README,TODO}
+%{__make} installCDKHeaderFiles installCDKManPages \
+	DESTDIR="$RPM_BUILD_ROOT"
+
+gzip -9nf BUGS CHANGES EXPANDING NOTES README TODO
 
 for d in demos examples; do 
    rm -f $d/Makefile.in
@@ -84,11 +92,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%doc *gz examples demos
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
 %{_mandir}/man3/*
-%doc {BUGS,CHANGES,COPYING,EXPANDING,INSTALL,NOTES,README,TODO}.gz
-%doc examples demos
 
 %files static
 %defattr(644,root,root,755)
