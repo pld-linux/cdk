@@ -1,5 +1,5 @@
 %define         ver_ver     4.9.9
-%define         ver_release 20000407
+%define         ver_release 20000628
 
 Summary:	Curses Development Kit
 Name:		cdk
@@ -11,7 +11,7 @@ Group(fr):	Librairies
 Group(pl):	Biblioteki
 URL:		http://dickey.his.com/cdk/cdk.html
 Source0:	ftp://dickey.his.com/cdk/%{name}.tar.gz
-Patch0:		%{name}-mkshlib.patch
+#Patch0:		%{name}-mkshlib.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -50,7 +50,7 @@ Dickey and is not the same as that at http://www.vexus.ca/CDK.html.
 
 %prep
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
-%patch0 -p1
+#%patch0 -p1
 
 %build
 # -funsigned-char gets valid 8bit display
