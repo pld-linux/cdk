@@ -1,11 +1,11 @@
 %define         ver_ver     4.9.10
-%define         ver_release 20010106
+%define         ver_release 20020727
 
 Summary:	Curses Development Kit
 Summary(pl):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	6
+Release:	1
 License:	BSD
 Group:		Libraries
 URL:		http://dickey.his.com/cdk/cdk.html
@@ -70,12 +70,12 @@ http://www.vexus.ca/CDK.html.
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
 %patch0 -p1
 %patch1 -p1
-mkdir include/cdk
-mv -f include/*.* include/cdk
+ln -sf . include/cdk
 
 %build
 # -funsigned-char gives valid 8bit display
 CFLAGS="%{rpmcflags} -funsigned-char"
+CPPFLAGS="-I/usr/include/ncurses"
 %configure2_13 \
 	--disable-x \
 	--with-ncurses
@@ -97,7 +97,7 @@ bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT/%{_mandir}
 for d in demos examples; do
    rm -f $d/Makefile.in
    mkf=$d/Makefile
-   sed 's|\-I%{_prefix}/X11R6/include|\-I%{_includedir}/cdk/|' <$mkf >$mkf.fix
+   sed 's|\-I\.\..*/include |\-I%{_includedir}/cdk |' <$mkf >$mkf.fix
    mv -f $mkf.fix $mkf
 done
 cp -rf demos examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
@@ -114,11 +114,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc BUGS CHANGES EXPANDING NOTES README TODO
-%{_examplesdir}/%{name}-%{version}
+%doc CHANGES COPYING EXPANDING NOTES README TODO
 %attr(755,root,root) %{_libdir}/lib*.so
-%{_includedir}/*
+%{_includedir}/cdk
 %{_mandir}/man3/*
+%{_examplesdir}/%{name}-%{version}
 
 %files static
 %defattr(644,root,root,755)
