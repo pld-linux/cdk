@@ -94,7 +94,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__make} installCDKHeaderFiles installCDKManPages \
 	DESTDIR=$RPM_BUILD_ROOT
 
-bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT/%{_mandir}
+bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 for d in demos examples; do
    rm -f $d/Makefile.in
