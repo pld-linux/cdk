@@ -4,7 +4,7 @@
 Summary:	Curses Development Kit
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Group(de):	Libraries
@@ -13,6 +13,7 @@ Group(fr):	Librairies
 Group(pl):	Biblioteki
 URL:		http://dickey.his.com/cdk/cdk.html
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
+Patch0:		%{name}-includes.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,9 +54,12 @@ Dickey and is not the same as that at http://www.vexus.ca/CDK.html.
 
 %prep
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
+%patch0 -p1
+mkdir include/cdk
+mv include/*.* include/cdk
 
 %build
-# -funsigned-char gets valid 8bit display
+# -funsigned-char gives valid 8bit display
 CFLAGS="%{rpmcflags} -funsigned-char"
 %configure \
 	--disable-x \
