@@ -55,7 +55,7 @@ Dickey and is not the same as that at http://www.vexus.ca/CDK.html.
 
 %build
 # -funsigned-char gets valid 8bit display
-CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS} -funsigned-char"
+CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS} -funsigned-char"
 %configure \
 	--disable-x \
 	--with-ncurses
