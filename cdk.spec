@@ -5,7 +5,7 @@ Summary:	Curses Development Kit
 Summary(pl):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	5
+Release:	6
 License:	BSD
 Group:		Libraries
 URL:		http://dickey.his.com/cdk/cdk.html
@@ -84,6 +84,7 @@ CFLAGS="%{rpmcflags} -funsigned-char"
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} installCDKSHLibrary installCDKLibrary \
 	DESTDIR="$RPM_BUILD_ROOT"
@@ -93,14 +94,13 @@ rm -rf $RPM_BUILD_ROOT
 
 bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT/%{_mandir}
 
-gzip -9nf BUGS CHANGES EXPANDING NOTES README TODO
-
 for d in demos examples; do
    rm -f $d/Makefile.in
    mkf=$d/Makefile
    sed 's|\-I%{_prefix}/X11R6/include|\-I%{_includedir}/cdk/|' <$mkf >$mkf.fix
    mv -f $mkf.fix $mkf
 done
+cp -rf demos examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -114,7 +114,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *gz examples demos
+%doc BUGS CHANGES EXPANDING NOTES README TODO
+%{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
 %{_mandir}/man3/*
