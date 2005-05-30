@@ -14,6 +14,7 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
 Patch0:		%{name}-man_remove_dupl.patch
 URL:		http://dickey.his.com/cdk/cdk.html
+BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
