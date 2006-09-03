@@ -1,0 +1,3 @@
+- new %doc
+- moved demos and examples to %{_examplesdir}
+- release 6
