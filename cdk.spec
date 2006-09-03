@@ -24,7 +24,7 @@ scrolling list, a selection list, a alphalist, pull-down menu, radio
 list, viewer widget, dialog box, and many more.
 
 This version of CDK is maintained by Thomas Dickey and is not the same
-as that at http://www.vexus.ca/CDK.html.
+as that at <http://www.vexus.ca/CDK.html>.
 
 %description -l pl
 CDK to zestaw widgetów zbudowanych na podstawie biblioteki curses.
@@ -34,39 +34,39 @@ alfabetyczna, menu rozwijane, lista przycisków, przegl±darka, okienko
 dialogowe i wiele innych.
 
 Ta wersja CDK jest prowadzona przez Thomasa Dickeya i nie jest tym
-samym, co znajduje siê pod adresem http://www.vexus.ca/CDK.html.
+samym, co znajduje siê pod adresem <http://www.vexus.ca/CDK.html>.
 
 %package devel
 Summary:	Header files and development documentation for CDK library
 Summary(pl):	Pliki nag³ówkowe i dokumentacja do CDK
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	ncurses-devel
 
 %description devel
 Header files and development documentation for CDK library. This
 version is maintained by Thomas Dickey and is not the same as that at
-http://www.vexus.ca/CDK.html.
+<http://www.vexus.ca/CDK.html>.
 
 %description devel -l pl
 Pliki nag³ówkowe i dokumentacja programisty do biblioteki CDK. Ta
 wersja jest prowadzona przez Thomasa Dickeya i nie jest tym samym, co
-znajduje siê pod adresem http://www.vexus.ca/CDK.html.
+znajduje siê pod adresem <http://www.vexus.ca/CDK.html>.
 
 %package static
 Summary:	Static version of CDK library
 Summary(pl):	Statyczna wersja biblioteki CDK
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of CDK library. This version is maintained by Thomas
-Dickey and is not the same as that at http://www.vexus.ca/CDK.html.
+Dickey and is not the same as that at <http://www.vexus.ca/CDK.html>.
 
 %description static -l pl
 Statyczna wersja biblioteki CDK. Ta wersja jest prowadzona przez
 Thomasa Dickeya i nie jest tym samym, co znajduje siê pod adresem
-http://www.vexus.ca/CDK.html.
+<http://www.vexus.ca/CDK.html>.
 
 %prep
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
