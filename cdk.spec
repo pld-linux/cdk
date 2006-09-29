@@ -5,7 +5,7 @@ Summary:	Curses Development Kit
 Summary(pl):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
@@ -13,6 +13,7 @@ Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
 Patch0:		%{name}-man_remove_dupl.patch
+Patch1:		%{name}-ncurses.patch
 URL:		http://dickey.his.com/cdk/cdk.html
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,6 +72,8 @@ Thomasa Dickeya i nie jest tym samym, co znajduje siê pod adresem
 %prep
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
 %patch0 -p1
+%patch1 -p1
+
 ln -sf . include/cdk
 
 %build
