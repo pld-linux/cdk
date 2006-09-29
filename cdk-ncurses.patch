@@ -1,0 +1,12 @@
+diff -urN cdk-5.0-20050424.org/Makefile.in cdk-5.0-20050424/Makefile.in
+--- cdk-5.0-20050424.org/Makefile.in	2005-04-25 01:06:20.000000000 +0200
++++ cdk-5.0-20050424/Makefile.in	2006-09-29 13:57:13.517159879 +0200
+@@ -266,7 +266,7 @@
+ 	@$(RANLIB) $@
+ 
+ cdkshlib $(CDKSHLIB) :: $(CDKSHOBJS) headers.sed
+-	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -o $(CDKSHLIB) $(CDKSHOBJS)
++	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -lncurses -o $(CDKSHLIB) $(CDKSHOBJS)
+ 
+ #
+ # Make the examples directory.
