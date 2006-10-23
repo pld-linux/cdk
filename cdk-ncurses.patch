@@ -6,7 +6,7 @@ diff -urN cdk-5.0-20050424.org/Makefile.in cdk-5.0-20050424/Makefile.in
  
  cdkshlib $(CDKSHLIB) :: $(CDKSHOBJS) headers.sed
 -	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -o $(CDKSHLIB) $(CDKSHOBJS)
-+	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -lncurses -o $(CDKSHLIB) $(CDKSHOBJS)
++	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -o $(CDKSHLIB) $(CDKSHOBJS) -lncurses
  
  #
  # Make the examples directory.
