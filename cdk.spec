@@ -2,7 +2,7 @@
 %define		ver_release	20050424
 
 Summary:	Curses Development Kit
-Summary(pl.UTF-8):   Zestaw programistyczny do Curses
+Summary(pl.UTF-8):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
 Release:	3
@@ -39,7 +39,7 @@ samym, co znajduje się pod adresem <http://www.vexus.ca/CDK.html>.
 
 %package devel
 Summary:	Header files and development documentation for CDK library
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja do CDK
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja do CDK
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	ncurses-devel
@@ -56,7 +56,7 @@ znajduje się pod adresem <http://www.vexus.ca/CDK.html>.
 
 %package static
 Summary:	Static version of CDK library
-Summary(pl.UTF-8):   Statyczna wersja biblioteki CDK
+Summary(pl.UTF-8):	Statyczna wersja biblioteki CDK
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
