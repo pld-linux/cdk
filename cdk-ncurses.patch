@@ -4,7 +4,7 @@ diff -urN cdk-5.0-20050424.org/Makefile.in cdk-5.0-20050424/Makefile.in
 @@ -266,7 +266,7 @@
  	@$(RANLIB) $@
  
- cdkshlib $(CDKSHLIB) :: $(CDKSHOBJS) headers.sed
+ cdkshlib $(CDKSHLIB) :: $(CDKSHOBJS)
 -	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -o $(CDKSHLIB) $(CDKSHOBJS)
 +	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -o $(CDKSHLIB) $(CDKSHOBJS) -lncurses
  

@@ -1,0 +1,16 @@
+diff -urN cdk-5.0-20060507.org/manlinks.sh cdk-5.0-20060507/manlinks.sh
+--- cdk-5.0-20060507.org/manlinks.sh	2005-12-29 01:22:00.000000000 +0100
++++ cdk-5.0-20060507/manlinks.sh	2007-05-19 15:49:46.833683162 +0200
+@@ -91,11 +91,7 @@
+ 				if test $cf_doit = yes ; then
+ 					echo "	... alias $cf_alias${suffix}"
+ 					rm -f $cf_alias${suffix}
+-					if (ln -s $target $cf_alias${suffix}) ; then
+-						:
+-					else
+-						echo ".so $target" > $cf_alias${suffix}
+-					fi
++					echo ".so $target" > $cf_alias${suffix}
+ 				fi
+ 			done
+ 		)
