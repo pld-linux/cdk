@@ -1,19 +1,19 @@
 %define		ver_ver		5.0
-%define		ver_release	20050424
+%define		ver_release	20060507
 
 Summary:	Curses Development Kit
 Summary(pl.UTF-8):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	3
+Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
-# Source0-md5:	0e2cbebf5c8a7b5ad29008a3c245def3
+# Source0-md5:	0ec2460a4484d5f5595d8faca61bc9c5
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
-Patch0:		%{name}-man_remove_dupl.patch
-Patch1:		%{name}-ncurses.patch
+Patch0:		%{name}-ncurses.patch
+Patch1:		%{name}-man.patch
 URL:		http://dickey.his.com/cdk/cdk.html
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
