@@ -1,5 +1,5 @@
 %define		ver_ver		5.0
-%define		ver_release	20060507
+%define		ver_release	20090215
 
 Summary:	Curses Development Kit
 Summary(pl.UTF-8):	Zestaw programistyczny do Curses
@@ -9,7 +9,7 @@ Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
-# Source0-md5:	0ec2460a4484d5f5595d8faca61bc9c5
+# Source0-md5:	851adaa3b6c51d39fb61d8ed1714a7d3
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
 Patch0:		%{name}-ncurses.patch
@@ -95,6 +95,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} installCDKHeaderFiles installCDKManPages \
 	DESTDIR=$RPM_BUILD_ROOT
+install include/cdk_test.h $RPM_BUILD_ROOT%{_includedir}/cdk
 
 bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
@@ -119,6 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc CHANGES COPYING EXPANDING NOTES README TODO
+%attr(755,root,root) %{_bindir}/cdk5-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/cdk
 %{_mandir}/man3/*
