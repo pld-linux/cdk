@@ -79,7 +79,7 @@ ln -sf . include/cdk
 %build
 # -funsigned-char gives valid 8bit display
 CFLAGS="%{rpmcflags} -funsigned-char"
-CPPFLAGS="-I/usr/include/ncurses"
+CPPFLAGS="%{rpmcppflags} -I/usr/include/ncurses"
 %configure2_13 \
 	--disable-x \
 	--with-ncurses
@@ -96,6 +96,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__make} installCDKHeaderFiles installCDKManPages \
 	DESTDIR=$RPM_BUILD_ROOT
 install include/cdk_test.h $RPM_BUILD_ROOT%{_includedir}/cdk
+
+/sbin/ldconfig -n $RPM_BUILD_ROOT%{_libdir}
 
 bzcat %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
@@ -115,17 +117,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%doc CHANGES COPYING EXPANDING NOTES README TODO
+%attr(755,root,root) %{_libdir}/libcdk.so.*.*
+%attr(755,root,root) %ghost %{_libdir}/libcdk.so.5
 
 %files devel
 %defattr(644,root,root,755)
-%doc CHANGES COPYING EXPANDING NOTES README TODO
 %attr(755,root,root) %{_bindir}/cdk5-config
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/libcdk.so
 %{_includedir}/cdk
-%{_mandir}/man3/*
+%{_mandir}/man3/*.3*
 %{_examplesdir}/%{name}-%{version}
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libcdk.a
