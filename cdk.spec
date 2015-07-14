@@ -5,7 +5,7 @@ Summary:	Curses Development Kit
 Summary(pl.UTF-8):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
