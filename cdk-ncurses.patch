@@ -1,12 +1,11 @@
-diff -urN cdk-5.0-20050424.org/Makefile.in cdk-5.0-20050424/Makefile.in
---- cdk-5.0-20050424.org/Makefile.in	2005-04-25 01:06:20.000000000 +0200
-+++ cdk-5.0-20050424/Makefile.in	2006-09-29 13:57:13.517159879 +0200
-@@ -266,7 +266,7 @@
- 	@$(RANLIB) $@
+--- cdk-5.0-20161210/Makefile.in.orig	2015-09-29 01:37:35.000000000 +0200
++++ cdk-5.0-20161210/Makefile.in	2017-07-19 05:52:26.274373712 +0200
+@@ -296,7 +296,7 @@
+ all cdklib :: $(CDKLIB)
  
- cdkshlib $(CDKSHLIB) :: $(CDKSHOBJS)
--	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -o $(CDKSHLIB) $(CDKSHOBJS)
-+	gcc -shared -Wl,-soname=$(SONAME) $(LDFLAGS) -o $(CDKSHLIB) $(CDKSHOBJS) -lncurses
+ @MAKE_NORMAL@cdkshlib $(OLD_SHLIB_FILE) :: $(CDKSHOBJS)
+-@MAKE_NORMAL@	gcc -shared -Wl,-soname=$(OLD_SONAME) $(LDFLAGS) $(LIBS) -o $(OLD_SHLIB_FILE) $(CDKSHOBJS)
++@MAKE_NORMAL@	gcc -shared -Wl,-soname=$(OLD_SONAME) $(LDFLAGS) $(LIBS) -o $(OLD_SHLIB_FILE) $(CDKSHOBJS) -lncurses
  
  #
  # Make the examples directory.

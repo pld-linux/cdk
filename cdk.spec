@@ -1,15 +1,15 @@
 %define		ver_ver		5.0
-%define		ver_release	20090215
+%define		ver_release	20161210
 
 Summary:	Curses Development Kit
 Summary(pl.UTF-8):	Zestaw programistyczny do Curses
 Name:		cdk
 Version:	%{ver_ver}_td%{ver_release}
-Release:	2
+Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
-# Source0-md5:	851adaa3b6c51d39fb61d8ed1714a7d3
+# Source0-md5:	fbacdf194d097d73a61f9556bb2dbe27
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
 Patch0:		%{name}-ncurses.patch
@@ -126,7 +126,111 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/cdk5-config
 %attr(755,root,root) %{_libdir}/libcdk.so
 %{_includedir}/cdk
-%{_mandir}/man3/*.3*
+%{_includedir}/cdk.h
+%{_mandir}/man3/Beep.3*
+%{_mandir}/man3/CDK*.3*
+%{_mandir}/man3/Cdk.3*
+%{_mandir}/man3/activateCDK*.3*
+%{_mandir}/man3/addCDK*.3*
+%{_mandir}/man3/alignxy.3*
+%{_mandir}/man3/attrbox.3*
+%{_mandir}/man3/baseName.3*
+%{_mandir}/man3/bindCDKObject.3*
+%{_mandir}/man3/boxWindow.3*
+%{_mandir}/man3/cdk.3*
+%{_mandir}/man3/cdk_*.3*
+%{_mandir}/man3/ceilCDK.3*
+%{_mandir}/man3/char2Chtype.3*
+%{_mandir}/man3/char2DisplayType.3*
+%{_mandir}/man3/checkCDKObjectBind.3*
+%{_mandir}/man3/checkForLink.3*
+%{_mandir}/man3/chlen.3*
+%{_mandir}/man3/chstrncpy.3*
+%{_mandir}/man3/chtype2Char.3*
+%{_mandir}/man3/chtype2String.3*
+%{_mandir}/man3/cleanCDK*.3*
+%{_mandir}/man3/cleanCdkTitle*.3*
+%{_mandir}/man3/cleanChar.3*
+%{_mandir}/man3/cleanChtype.3*
+%{_mandir}/man3/cmpStrChstr.3*
+%{_mandir}/man3/copyChar*.3*
+%{_mandir}/man3/copyChtype*.3*
+%{_mandir}/man3/deactivateCDK*.3*
+%{_mandir}/man3/deleteCDK*.3*
+%{_mandir}/man3/deleteCursesWindow.3*
+%{_mandir}/man3/deleteFileCB.3*
+%{_mandir}/man3/destroyCDK*.3*
+%{_mandir}/man3/dirName.3*
+%{_mandir}/man3/drawCDK*.3*
+%{_mandir}/man3/drawCdkTitle.3*
+%{_mandir}/man3/drawLine.3*
+%{_mandir}/man3/drawObjBox.3*
+%{_mandir}/man3/drawShadow.3*
+%{_mandir}/man3/dumpCDKSwindow*.3*
+%{_mandir}/man3/endCDK.3*
+%{_mandir}/man3/eraseCDK*.3*
+%{_mandir}/man3/eraseCursesWindow.3*
+%{_mandir}/man3/execCDKSwindow.3*
+%{_mandir}/man3/exitCancelCDKScreen*.3*
+%{_mandir}/man3/exitOKCDKScreen*.3*
+%{_mandir}/man3/floorCDK.3*
+%{_mandir}/man3/freeChar*.3*
+%{_mandir}/man3/freeChtype*.3*
+%{_mandir}/man3/getCDK*.3*
+%{_mandir}/man3/getDirectoryContents.3*
+%{_mandir}/man3/getListIndex.3*
+%{_mandir}/man3/getString.3*
+%{_mandir}/man3/getcCDKObject.3*
+%{_mandir}/man3/getchCDKObject.3*
+%{_mandir}/man3/initCDK*.3*
+%{_mandir}/man3/injectCDK*.3*
+%{_mandir}/man3/insertCDK*.3*
+%{_mandir}/man3/intlen.3*
+%{_mandir}/man3/jumpToCell.3*
+%{_mandir}/man3/jumpToLineCDKSwindow.3*
+%{_mandir}/man3/justifyString.3*
+%{_mandir}/man3/lenCharList.3*
+%{_mandir}/man3/lenChtypeList.3*
+%{_mandir}/man3/loadCDKSwindowInformation.3*
+%{_mandir}/man3/lowerCDKObject.3*
+%{_mandir}/man3/mixCDKTemplate.3*
+%{_mandir}/man3/mode2Char.3*
+%{_mandir}/man3/mode2Filetype.3*
+%{_mandir}/man3/moveCDK*.3*
+%{_mandir}/man3/moveCursesWindow.3*
+%{_mandir}/man3/moveToCDKMatrixCell.3*
+%{_mandir}/man3/newCDK*.3*
+%{_mandir}/man3/popupDialog.3*
+%{_mandir}/man3/popupLabel*.3*
+%{_mandir}/man3/positionCDK*.3*
+%{_mandir}/man3/raiseCDKObject.3*
+%{_mandir}/man3/readFile.3*
+%{_mandir}/man3/refreshCDKScreen.3*
+%{_mandir}/man3/registerCDKObject.3*
+%{_mandir}/man3/removeCDKCalendarMarker.3*
+%{_mandir}/man3/resetCDKScreen*.3*
+%{_mandir}/man3/saveCDKSwindowInformation.3*
+%{_mandir}/man3/searchList.3*
+%{_mandir}/man3/selectFile.3*
+%{_mandir}/man3/setCDK*.3*
+%{_mandir}/man3/setCdkExitType.3*
+%{_mandir}/man3/setCdkTitle.3*
+%{_mandir}/man3/setWidgetDimension.3*
+%{_mandir}/man3/sortList.3*
+%{_mandir}/man3/splitString.3*
+%{_mandir}/man3/stripWhiteSpace.3*
+%{_mandir}/man3/traverseCDK*.3*
+%{_mandir}/man3/trimCDKSwindow.3*
+%{_mandir}/man3/unbindCDKObject.3*
+%{_mandir}/man3/unmixCDKTemplate.3*
+%{_mandir}/man3/unregisterCDKObject.3*
+%{_mandir}/man3/validCDKObject.3*
+%{_mandir}/man3/viewFile.3*
+%{_mandir}/man3/viewInfo.3*
+%{_mandir}/man3/waitCDKLabel.3*
+%{_mandir}/man3/writeBlanks.3*
+%{_mandir}/man3/writeChar*.3*
+%{_mandir}/man3/writeChtype*.3*
 %{_examplesdir}/%{name}-%{version}
 
 %files static
