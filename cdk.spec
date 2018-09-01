@@ -1,5 +1,5 @@
 %define		ver_ver		5.0
-%define		ver_release	20161210
+%define		ver_release	20180306
 
 Summary:	Curses Development Kit
 Summary(pl.UTF-8):	Zestaw programistyczny do Curses
@@ -8,13 +8,13 @@ Version:	%{ver_ver}_td%{ver_release}
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	ftp://dickey.his.com/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
-# Source0-md5:	fbacdf194d097d73a61f9556bb2dbe27
+Source0:	ftp://ftp.invisible-island.net/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
+# Source0-md5:	3b52823d8a78c6d27d4be8839edd279e
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
 Patch0:		%{name}-ncurses.patch
 Patch1:		%{name}-man.patch
-URL:		http://dickey.his.com/cdk/cdk.html
+URL:		http://invisible-island.net/cdk/cdk.html
 BuildRequires:	ncurses-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
