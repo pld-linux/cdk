@@ -1,5 +1,5 @@
 %define		ver_ver		5.0
-%define		ver_release	20180306
+%define		ver_release	20211216
 
 Summary:	Curses Development Kit
 Summary(pl.UTF-8):	Zestaw programistyczny do Curses
@@ -9,7 +9,7 @@ Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.invisible-island.net/cdk/%{name}-%{ver_ver}-%{ver_release}.tgz
-# Source0-md5:	3b52823d8a78c6d27d4be8839edd279e
+# Source0-md5:	3ad412771b9193442a11ac0b983265b9
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-man-pages.tar.bz2
 # Source1-md5:	ae2a6fea526cc1c4407e547bda537a08
 Patch0:		%{name}-ncurses.patch
@@ -127,6 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libcdk.so
 %{_includedir}/cdk
 %{_includedir}/cdk.h
+%{_mandir}/man1/cdk5-config.1*
 %{_mandir}/man3/Beep.3*
 %{_mandir}/man3/CDK*.3*
 %{_mandir}/man3/Cdk.3*
@@ -177,6 +178,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/freeChar*.3*
 %{_mandir}/man3/freeChtype*.3*
 %{_mandir}/man3/getCDK*.3*
+%{_mandir}/man3/getCdkTitle.3*
 %{_mandir}/man3/getDirectoryContents.3*
 %{_mandir}/man3/getListIndex.3*
 %{_mandir}/man3/getString.3*
