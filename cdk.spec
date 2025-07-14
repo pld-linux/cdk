@@ -71,8 +71,8 @@ Thomasa Dickeya i nie jest tym samym, co znajduje się pod adresem
 
 %prep
 %setup -q -n %{name}-%{ver_ver}-%{ver_release}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 ln -sf . include/cdk
 
